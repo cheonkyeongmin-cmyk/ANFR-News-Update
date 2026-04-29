@@ -1,0 +1,40 @@
+name: ANFR Daily Monitor
+
+on:
+  schedule:
+    - cron: '0 22 * * *'   # UTC 22:00 = KST 07:00
+  workflow_dispatch:         # 수동 실행 가능 (Actions 탭에서 버튼 클릭)
+
+jobs:
+  crawl-and-notify:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run ANFR crawler
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: python anfr_crawler.py
+
+      - name: Send ntfy notification
+        env:
+          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
+        run: python send_ntfy.py
+
+      - name: Commit updated state and reports
+        run: |
+          git config user.email "action@github.com"
+          git config user.name "GitHub Action"
+          git add last_crawl_state.json reports/ || true
+          git commit -m "Auto: ANFR crawl $(date +%Y-%m-%d)" || echo "No changes to commit"
+          git push || echo "Nothing to push"
