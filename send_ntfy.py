@@ -36,16 +36,14 @@ def send_notification(subject: str, body: str, priority: str, tags: str):
 
     url = f"{NTFY_BASE}/{NTFY_TOPIC}"
     try:
-        # requests encodes headers as latin-1 which breaks Korean.
-        # Solution: send as JSON payload instead which supports UTF-8 natively.
         r = requests.post(
             url,
-            json={
-                "topic": NTFY_TOPIC,
-                "title": subject,
-                "message": body,
-                "priority": {"high": 4, "default": 3}.get(priority, 3),
-                "tags": [tags],
+            data=body.encode("utf-8"),
+            headers={
+                "Title": subject,
+                "Priority": priority,
+                "Tags": tags,
+                "Content-Type": "text/plain; charset=utf-8",
             },
             timeout=10,
         )
@@ -60,8 +58,8 @@ def main():
     if not report_path:
         log.error("No report JSON found in reports/ directory.")
         send_notification(
-            subject="ANFR 모니터 오류",
-            body="리포트 파일을 찾을 수 없습니다. 크롤러 로그를 확인하세요.",
+            subject="ANFR Monitor Error",
+            body="Report file not found. Please check crawler logs.",
             priority="high",
             tags="warning",
         )
@@ -74,19 +72,20 @@ def main():
     new_articles = [a for a in articles if a.get("is_new")]
     new_count = len(new_articles)
     total = len(articles)
-    subject = data.get("email_subject", "ANFR 뉴스 리포트")
+    crawled_at = data.get("crawled_at", "")[:10]
 
     if new_count == 0:
-        body = f"총 {total}건 확인 | 신규·업데이트 없음 ✅"
+        subject = f"ANFR News Report - {crawled_at}"
+        body = f"Total {total} articles checked | No new updates"
         priority = "default"
         tags = "white_check_mark"
     else:
-        # List up to 3 new articles — Korean summary if available, else title
+        subject = f"ANFR News Report - {crawled_at} ({new_count} new)"
         preview = "\n".join(
-            f"• {a.get('summary_ko') or a['title'][:60]}"
+            f"• {a.get('summary_en') or a['title'][:60]}"
             for a in new_articles[:3]
         )
-        body = f"총 {total}건 | 신규·업데이트 {new_count}건\n\n{preview}"
+        body = f"Total {total} articles | {new_count} new/updated\n\n{preview}"
         priority = "high"
         tags = "newspaper"
 
