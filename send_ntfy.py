@@ -7,7 +7,6 @@ import os
 import json
 import logging
 from pathlib import Path
-from urllib.parse import quote
 
 import requests
 from dotenv import load_dotenv
@@ -37,14 +36,16 @@ def send_notification(subject: str, body: str, priority: str, tags: str):
 
     url = f"{NTFY_BASE}/{NTFY_TOPIC}"
     try:
+        # requests encodes headers as latin-1 which breaks Korean.
+        # Solution: send as JSON payload instead which supports UTF-8 natively.
         r = requests.post(
             url,
-            data=body.encode("utf-8"),
-            headers={
-                "Title": quote(subject),
-                "Priority": priority,
-                "Tags": tags,
-                "Content-Type": "text/plain; charset=utf-8",
+            json={
+                "topic": NTFY_TOPIC,
+                "title": subject,
+                "message": body,
+                "priority": {"high": 4, "default": 3}.get(priority, 3),
+                "tags": [tags],
             },
             timeout=10,
         )
