@@ -75,14 +75,17 @@ def crawl_article_list() -> list[dict]:
         if not soup:
             break
 
+        # Adjust selectors based on ANFR's actual HTML structure
         items = soup.select("article, .news-item, .actualite-item, li.item")
         if not items:
+            # Fallback: try common patterns
             items = soup.select("a[href*='actualite'], a[href*='news']")
 
         log.info(f"Found {len(items)} items on page")
 
         for item in items:
             try:
+                # Try to extract title and link
                 link_tag = item.select_one("a[href]") if item.name != "a" else item
                 if not link_tag:
                     continue
@@ -105,6 +108,7 @@ def crawl_article_list() -> list[dict]:
                 log.warning(f"Error parsing item: {e}")
                 continue
 
+        # Pagination
         next_link = soup.select_one("a[rel='next'], .pagination .next a, a.next")
         if next_link and next_link.get("href"):
             next_href = next_link["href"]
@@ -113,6 +117,7 @@ def crawl_article_list() -> list[dict]:
         else:
             url = None
 
+    # Deduplicate by URL
     seen = set()
     unique = []
     for a in articles:
@@ -130,14 +135,16 @@ def crawl_article_body(url: str) -> str:
     if not soup:
         return ""
 
+    # Try common content selectors
     for selector in ["article .content", "article", ".article-body",
                      ".field-body", "main p", ".content-area"]:
         content = soup.select(selector)
         if content:
             text = " ".join(el.get_text(separator=" ", strip=True) for el in content)
             if len(text) > 100:
-                return text[:5000]
+                return text[:5000]  # Cap to avoid huge LLM costs
 
+    # Fallback: all paragraphs
     paras = soup.select("p")
     return " ".join(p.get_text(strip=True) for p in paras if len(p.get_text(strip=True)) > 40)[:5000]
 
@@ -159,28 +166,51 @@ def call_gemini(prompt: str) -> str:
         return f"[LLM error: {e}]"
 
 
+def extract_section(text: str, marker: str) -> str:
+    """
+    Robustly extract a section from Gemini response.
+    Handles multi-line responses, bold markers (**FR_SUMMARY:**),
+    and variations in spacing or casing.
+    """
+    import re
+    # Match marker with optional ** bold, optional space, capture everything until next marker or end
+    pattern = re.compile(
+        rf"\*{{0,2}}{re.escape(marker)}\*{{0,2}}\s*:?\s*(.*?)(?=\*{{0,2}}(?:FR_SUMMARY|EN_SUMMARY|KO_SUMMARY)\*{{0,2}}\s*:|$)",
+        re.IGNORECASE | re.DOTALL
+    )
+    match = pattern.search(text)
+    if match:
+        return match.group(1).strip().replace("\n", " ")
+    return ""
+
+
 def summarize_and_translate(title: str, full_text: str) -> dict:
     """Return FR summary, EN translation, KO translation."""
-    prompt = f"""
-You are a news summarizer. Given the following French article, produce exactly three sections.
+    prompt = f"""You are a news summarizer. Summarize the following French article in 2-3 sentences each.
+
 Article title: {title}
 Article text: {full_text[:3000]}
 
-Respond in this exact format (no extra text):
-FR_SUMMARY: [3-5 sentence summary in French]
-EN_SUMMARY: [3-5 sentence English summary]
-KO_SUMMARY: [3-5 sentence Korean summary]
-"""
-    result = call_gemini(prompt)
+You MUST respond using EXACTLY this format with these exact labels on separate lines:
+FR_SUMMARY: <2-3 sentence summary in French>
+EN_SUMMARY: <2-3 sentence summary in English>
+KO_SUMMARY: <2-3 sentence summary in Korean>
 
-    summaries = {"summary_fr": "", "summary_en": "", "summary_ko": ""}
-    for line in result.splitlines():
-        if line.startswith("FR_SUMMARY:"):
-            summaries["summary_fr"] = line.replace("FR_SUMMARY:", "").strip()
-        elif line.startswith("EN_SUMMARY:"):
-            summaries["summary_en"] = line.replace("EN_SUMMARY:", "").strip()
-        elif line.startswith("KO_SUMMARY:"):
-            summaries["summary_ko"] = line.replace("KO_SUMMARY:", "").strip()
+Do not add any other text, headers, or formatting. Start your response directly with FR_SUMMARY:"""
+
+    result = call_gemini(prompt)
+    log.debug(f"Gemini raw response: {result[:300]}")
+
+    summaries = {
+        "summary_fr": extract_section(result, "FR_SUMMARY"),
+        "summary_en": extract_section(result, "EN_SUMMARY"),
+        "summary_ko": extract_section(result, "KO_SUMMARY"),
+    }
+
+    # Log warning if any field is empty
+    for key, val in summaries.items():
+        if not val:
+            log.warning(f"Parsing failed for {key}. Raw response snippet: {result[:200]}")
 
     return summaries
 
@@ -261,11 +291,13 @@ def main(dry_run: bool = False):
 
     log.info("=== ANFR Crawler Start ===")
 
+    # Step 1: Crawl article list
     articles = crawl_article_list()
     if not articles:
         log.warning("No articles found. Exiting.")
         return
 
+    # Step 2: Detect new articles
     state = load_state()
     for a in articles:
         a["is_new"] = a["url"] not in state
@@ -274,6 +306,7 @@ def main(dry_run: bool = False):
     new_count = sum(1 for a in articles if a["is_new"])
     log.info(f"New articles: {new_count} / {len(articles)}")
 
+    # Step 3: Crawl full text + summarize (skip in dry-run)
     for i, a in enumerate(articles):
         log.info(f"Processing article {i+1}/{len(articles)}: {a['title'][:50]}")
         a["full_text_fr"] = crawl_article_body(a["url"])
@@ -287,7 +320,9 @@ def main(dry_run: bool = False):
             summaries = summarize_and_translate(a["title"], a["full_text_fr"])
             a.update(summaries)
 
+    # Step 4: Generate outputs
     email_subject = f"ANFR 규제 뉴스 리포트 - {date_label} (신규 {new_count}건)"
+
     txt_content = generate_txt(articles, date_label, new_count)
     html_content = generate_html(articles, date_label, new_count)
 
@@ -311,6 +346,7 @@ def main(dry_run: bool = False):
 
     log.info(f"Reports saved: {txt_path}, {html_path}, {json_path}")
 
+    # Step 5: Update state
     new_state = {a["url"]: a.get("date", "") for a in articles}
     save_state(new_state)
 
