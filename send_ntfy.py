@@ -7,6 +7,7 @@ import os
 import json
 import logging
 from pathlib import Path
+from urllib.parse import quote
 
 import requests
 from dotenv import load_dotenv
@@ -40,7 +41,7 @@ def send_notification(subject: str, body: str, priority: str, tags: str):
             url,
             data=body.encode("utf-8"),
             headers={
-                "Title": subject,
+                "Title": quote(subject),
                 "Priority": priority,
                 "Tags": tags,
                 "Content-Type": "text/plain; charset=utf-8",
