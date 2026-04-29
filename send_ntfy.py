@@ -82,7 +82,7 @@ def main():
     else:
         subject = f"ANFR News Report - {crawled_at} ({new_count} new)"
         preview = "\n".join(
-            f"• {a.get('summary_en') or a['title'][:60]}"
+            f"• {(a.get('summary_en') or a['title'])[:120]}"
             for a in new_articles[:3]
         )
         body = f"Total {total} articles | {new_count} new/updated\n\n{preview}"
