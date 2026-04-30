@@ -2,8 +2,8 @@ name: ANFR Daily Monitor
 
 on:
   schedule:
-    - cron: '0 22 * * *'   # UTC 22:00 = KST 07:00
-  workflow_dispatch:         # 수동 실행 가능 (Actions 탭에서 버튼 클릭)
+    - cron: "30 21 * * *"   # 21:30 UTC = 약 07:00 KST (지연 여유 포함)
+  workflow_dispatch:        # 수동 실행 버튼 (테스트용)
 
 jobs:
   crawl-and-notify:
