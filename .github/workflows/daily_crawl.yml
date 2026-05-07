@@ -2,7 +2,7 @@ name: ANFR Daily Monitor
 
 on:
   schedule:
-    - cron: "30 21 * * *"   # 21:30 UTC = 약 06:30 KST, GitHub 지연 감안
+    - cron: "30 21 * * *"
   workflow_dispatch:
 
 permissions:
