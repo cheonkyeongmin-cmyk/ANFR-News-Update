@@ -1,6 +1,7 @@
 """
 send_ntfy.py
 Reads the latest ANFR JSON report and sends a push notification via ntfy.sh
+All notification text is sent in English to avoid Korean encoding issues.
 """
 
 import os
@@ -35,6 +36,7 @@ def send_notification(subject: str, body: str, priority: str, tags: str):
         return
 
     url = f"{NTFY_BASE}/{NTFY_TOPIC}"
+
     try:
         r = requests.post(
             url,
@@ -49,12 +51,41 @@ def send_notification(subject: str, body: str, priority: str, tags: str):
         )
         r.raise_for_status()
         log.info(f"ntfy notification sent to topic: {NTFY_TOPIC}")
+
     except Exception as e:
         log.error(f"Failed to send ntfy notification: {e}")
 
 
+def make_preview_lines(articles: list[dict]) -> str:
+    preview_lines = []
+
+    for idx, a in enumerate(articles, start=1):
+        title = a.get("title", "").replace("\n", " ").strip()
+
+        summary = (
+            a.get("summary_en")
+            or a.get("summary_fr")
+            or title
+        )
+        summary = summary.replace("\n", " ").strip()
+
+        if len(title) > 100:
+            title = title[:100] + "..."
+
+        if len(summary) > 180:
+            summary = summary[:180] + "..."
+
+        if title and summary and title != summary:
+            preview_lines.append(f"{idx}. {title}\n   {summary}")
+        else:
+            preview_lines.append(f"{idx}. {summary}")
+
+    return "\n\n".join(preview_lines)
+
+
 def main():
     report_path = find_latest_report()
+
     if not report_path:
         log.error("No report JSON found in reports/ directory.")
         send_notification(
@@ -69,27 +100,40 @@ def main():
     data = json.loads(report_path.read_text(encoding="utf-8"))
 
     articles = data.get("articles", [])
-    new_articles = [a for a in articles if a.get("is_new")]
-    new_count = len(new_articles)
     total = len(articles)
     crawled_at = data.get("crawled_at", "")[:10]
 
-    if new_count == 0:
+    changed_articles = [
+        a for a in articles
+        if a.get("is_new") or a.get("is_updated")
+    ]
+    changed_count = len(changed_articles)
+
+    if changed_count == 0:
         subject = f"ANFR News Report - {crawled_at}"
         body = f"Total {total} articles checked | No new updates"
         priority = "default"
         tags = "white_check_mark"
     else:
-        subject = f"ANFR News Report - {crawled_at} ({new_count} new)"
-        preview = "\n".join(
-            f"• {(a.get('summary_en') or a['title'])[:120]}"
-            for a in new_articles[:3]
+        subject = f"ANFR News Report - {crawled_at} ({changed_count} new/updated)"
+
+        preview = make_preview_lines(changed_articles)
+
+        body = (
+            f"Total {total} articles | "
+            f"{changed_count} new/updated\n\n"
+            f"{preview}"
         )
-        body = f"Total {total} articles | {new_count} new/updated\n\n{preview}"
+
         priority = "high"
         tags = "newspaper"
 
-    send_notification(subject=subject, body=body, priority=priority, tags=tags)
+    send_notification(
+        subject=subject,
+        body=body,
+        priority=priority,
+        tags=tags,
+    )
 
 
 if __name__ == "__main__":
