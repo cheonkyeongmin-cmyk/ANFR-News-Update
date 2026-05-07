@@ -2,8 +2,11 @@ name: ANFR Daily Monitor
 
 on:
   schedule:
-    - cron: "30 21 * * *"   # 21:30 UTC = 약 07:00 KST (지연 여유 포함)
-  workflow_dispatch:        # 수동 실행 버튼 (테스트용)
+    - cron: "30 21 * * *"   # 21:30 UTC = 약 06:30 KST, GitHub 지연 감안
+  workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   crawl-and-notify:
@@ -12,6 +15,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Set up Python 3.11
         uses: actions/setup-python@v5
@@ -35,6 +40,7 @@ jobs:
         run: |
           git config user.email "action@github.com"
           git config user.name "GitHub Action"
+          git pull --rebase || true
           git add last_crawl_state.json reports/ || true
           git commit -m "Auto: ANFR crawl $(date +%Y-%m-%d)" || echo "No changes to commit"
           git push || echo "Nothing to push"
