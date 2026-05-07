@@ -2,7 +2,8 @@
 ANFR News Crawler
 - Crawls https://www.anfr.fr/liste-actualites
 - Detects new/updated articles vs last run
-- Summarizes and translates using Google Gemini
+- Reuses previous summaries for unchanged articles
+- Summarizes and translates only new/updated articles using Google Gemini
 - Outputs: JSON, TXT, HTML report
 """
 
@@ -11,9 +12,11 @@ import json
 import time
 import logging
 import argparse
+import html
+import hashlib
 from datetime import datetime
 from pathlib import Path
-import html
+from urllib.parse import urljoin, urlsplit, urlunsplit
 
 import requests
 from bs4 import BeautifulSoup
@@ -77,16 +80,78 @@ def save_state(state: dict):
 
 
 def normalize_url(href: str) -> str:
+    """
+    Normalize URL so the same article is not treated as different
+    because of trailing slash, query string, or fragment.
+    """
     if not href:
         return ""
 
-    if href.startswith("http"):
-        return href
+    full_url = urljoin(BASE_URL, href)
+    parsed = urlsplit(full_url)
 
-    if href.startswith("/"):
-        return BASE_URL + href
+    clean_url = urlunsplit(
+        (
+            parsed.scheme,
+            parsed.netloc,
+            parsed.path.rstrip("/"),
+            "",
+            "",
+        )
+    )
 
-    return BASE_URL + "/" + href
+    return clean_url
+
+
+def article_key(url: str) -> str:
+    """Create stable article key from normalized URL."""
+    return hashlib.sha256(url.encode("utf-8")).hexdigest()
+
+
+def load_previous_summaries() -> dict:
+    """
+    Load summaries from the latest previous JSON report.
+    This avoids calling Gemini again for unchanged articles.
+    """
+    if not REPORTS_DIR.exists():
+        log.info("Reports directory does not exist. No previous summaries found.")
+        return {}
+
+    reports = sorted(REPORTS_DIR.glob("ANFR_Report_????????.json"), reverse=True)
+
+    for report_path in reports:
+        try:
+            data = json.loads(report_path.read_text(encoding="utf-8"))
+            old_articles = data.get("articles", [])
+
+            summary_map = {}
+
+            for a in old_articles:
+                key = a.get("article_key")
+
+                if not key:
+                    url = a.get("url", "")
+                    if url:
+                        key = article_key(normalize_url(url))
+
+                if not key:
+                    continue
+
+                summary_map[key] = {
+                    "summary_fr": a.get("summary_fr", ""),
+                    "summary_en": a.get("summary_en", ""),
+                    "summary_ko": a.get("summary_ko", ""),
+                }
+
+            if summary_map:
+                log.info(f"Loaded previous summaries from: {report_path}")
+                return summary_map
+
+        except Exception as e:
+            log.warning(f"Failed to load previous report {report_path}: {e}")
+
+    log.info("No previous summaries found.")
+    return {}
 
 
 # ── Crawling ─────────────────────────────────────────────
@@ -129,9 +194,9 @@ def crawl_article_list() -> list[dict]:
                 if title and href:
                     articles.append(
                         {
-                            "title": title,
+                            "title": title.strip(),
                             "url": href,
-                            "date": date_str,
+                            "date": date_str.strip(),
                         }
                     )
 
@@ -275,26 +340,26 @@ Do not add any other text, headers, or formatting. Start your response directly 
 def generate_txt(articles: list[dict], date_str: str, changed_count: int) -> str:
     lines = [
         "=" * 60,
-        f"  ANFR 규제 뉴스 리포트 | {date_str}",
-        f"  총 {len(articles)}건 | 신규·업데이트 {changed_count}건",
+        f"  ANFR Regulatory News Report | {date_str}",
+        f"  Total {len(articles)} articles | New/updated {changed_count}",
         "=" * 60,
         "",
     ]
 
     for a in articles:
         if a.get("is_new"):
-            tag = "[신규]"
+            tag = "[NEW]"
         elif a.get("is_updated"):
-            tag = "[업데이트]"
+            tag = "[UPDATED]"
         else:
-            tag = "[기존]"
+            tag = "[OLD]"
 
         lines += [
             f"{tag} {a.get('title', '')}",
-            f"날짜: {a.get('date', 'N/A')} | {a.get('url', '')}",
-            f"▶ 원문 요약 (FR): {a.get('summary_fr', 'N/A')}",
-            f"▶ English Summary: {a.get('summary_en', 'N/A')}",
-            f"▶ 한국어 요약: {a.get('summary_ko', 'N/A')}",
+            f"Date: {a.get('date', 'N/A')} | {a.get('url', '')}",
+            f"FR Summary: {a.get('summary_fr', 'N/A')}",
+            f"EN Summary: {a.get('summary_en', 'N/A')}",
+            f"KO Summary: {a.get('summary_ko', 'N/A')}",
             "-" * 60,
             "",
         ]
@@ -313,9 +378,9 @@ def generate_html(articles: list[dict], date_str: str, changed_count: int) -> st
         summary_en = html.escape(a.get("summary_en", "N/A"))
 
         if a.get("is_new"):
-            badge = '<span style="background:#FFD700;color:#333;padding:2px 8px;border-radius:4px;font-size:12px;margin-left:8px;">🆕 NEW</span>'
+            badge = '<span style="background:#FFD700;color:#333;padding:2px 8px;border-radius:4px;font-size:12px;margin-left:8px;">NEW</span>'
         elif a.get("is_updated"):
-            badge = '<span style="background:#87CEEB;color:#333;padding:2px 8px;border-radius:4px;font-size:12px;margin-left:8px;">🔄 UPDATED</span>'
+            badge = '<span style="background:#87CEEB;color:#333;padding:2px 8px;border-radius:4px;font-size:12px;margin-left:8px;">UPDATED</span>'
         else:
             badge = ""
 
@@ -327,12 +392,12 @@ def generate_html(articles: list[dict], date_str: str, changed_count: int) -> st
             </div>
             <div style="color:#888;font-size:12px;margin-bottom:12px;">{date}</div>
             <div style="font-size:15px;color:#222;margin-bottom:8px;line-height:1.6;">
-                🇰🇷 {summary_ko}
+                Korean Summary: {summary_ko}
             </div>
             <div style="font-size:13px;color:#666;margin-bottom:10px;line-height:1.5;">
-                🇬🇧 {summary_en}
+                English Summary: {summary_en}
             </div>
-            <a href="{url}" style="font-size:12px;color:#0066cc;">원문 보기 →</a>
+            <a href="{url}" style="font-size:12px;color:#0066cc;">Read original →</a>
         </div>
         """
 
@@ -343,22 +408,22 @@ def generate_html(articles: list[dict], date_str: str, changed_count: int) -> st
 </head>
 <body style="font-family:Arial,sans-serif;background:#f5f5f5;padding:24px;max-width:800px;margin:auto;">
     <div style="background:#1a1a2e;color:#fff;padding:24px;border-radius:8px;margin-bottom:20px;">
-        <h1 style="margin:0;font-size:20px;">📡 ANFR 규제 뉴스 리포트</h1>
+        <h1 style="margin:0;font-size:20px;">ANFR Regulatory News Report</h1>
         <p style="margin:8px 0 0;opacity:0.8;">{html.escape(date_str)}</p>
     </div>
     <div style="background:#fff;border-radius:8px;padding:16px;margin-bottom:20px;display:flex;gap:16px;">
         <div style="text-align:center;flex:1;">
             <div style="font-size:28px;font-weight:bold;color:#1a1a2e;">{len(articles)}</div>
-            <div style="color:#666;font-size:13px;">총 기사</div>
+            <div style="color:#666;font-size:13px;">Total articles</div>
         </div>
         <div style="text-align:center;flex:1;">
             <div style="font-size:28px;font-weight:bold;color:#e74c3c;">{changed_count}</div>
-            <div style="color:#666;font-size:13px;">신규·업데이트</div>
+            <div style="color:#666;font-size:13px;">New/updated</div>
         </div>
     </div>
     {cards}
     <div style="text-align:center;color:#aaa;font-size:11px;margin-top:24px;">
-        본 리포트는 ANFR 사이트를 자동 크롤링하여 생성되었습니다.
+        This report was automatically generated from the ANFR website.
     </div>
 </body>
 </html>"""
@@ -369,7 +434,7 @@ def main(dry_run: bool = False):
     REPORTS_DIR.mkdir(exist_ok=True)
 
     today = datetime.now().strftime("%Y%m%d")
-    date_label = datetime.now().strftime("%Y년 %m월 %d일")
+    date_label = datetime.now().strftime("%Y-%m-%d")
 
     log.info("=== ANFR Crawler Start ===")
 
@@ -379,27 +444,28 @@ def main(dry_run: bool = False):
         return
 
     state = load_state()
+    previous_summaries = load_previous_summaries()
 
     for a in articles:
         url = a["url"]
-        current_date = a.get("date", "")
-        current_title = a.get("title", "")
+        key = article_key(url)
 
-        old = state.get(url)
+        current_date = a.get("date", "").strip()
+        current_title = a.get("title", "").strip()
+
+        old = state.get(key)
 
         if old is None:
             a["is_new"] = True
             a["is_updated"] = False
-        elif isinstance(old, dict):
+        else:
             a["is_new"] = False
             a["is_updated"] = (
                 old.get("date", "") != current_date
                 or old.get("title", "") != current_title
             )
-        else:
-            # Backward compatibility with old state format: {url: date}
-            a["is_new"] = False
-            a["is_updated"] = old != current_date
+
+        a["article_key"] = key
 
         status = "NEW" if a["is_new"] else "UPDATED" if a["is_updated"] else "OLD"
         log.info(f"[{status}] {a['title'][:60]}")
@@ -414,6 +480,17 @@ def main(dry_run: bool = False):
     for i, a in enumerate(articles):
         log.info(f"Processing article {i + 1}/{len(articles)}: {a['title'][:50]}")
 
+        key = a.get("article_key", "")
+        is_changed = a.get("is_new") or a.get("is_updated")
+
+        if not is_changed and key in previous_summaries:
+            log.info("Reusing previous summary. Gemini call skipped.")
+            a.update(previous_summaries[key])
+            a["full_text_fr"] = ""
+            continue
+
+        log.info("New or updated article. Crawling body and calling Gemini.")
+
         a["full_text_fr"] = crawl_article_body(a["url"])
         time.sleep(1.2)
 
@@ -425,7 +502,7 @@ def main(dry_run: bool = False):
             summaries = summarize_and_translate(a["title"], a["full_text_fr"])
             a.update(summaries)
 
-    email_subject = f"ANFR 규제 뉴스 리포트 - {date_label} (신규·업데이트 {changed_count}건)"
+    email_subject = f"ANFR Regulatory News Report - {date_label} ({changed_count} new/updated)"
 
     txt_content = generate_txt(articles, date_label, changed_count)
     html_content = generate_html(articles, date_label, changed_count)
@@ -455,7 +532,8 @@ def main(dry_run: bool = False):
     log.info(f"Reports saved: {txt_path}, {html_path}, {json_path}")
 
     new_state = {
-        a["url"]: {
+        a["article_key"]: {
+            "url": a.get("url", ""),
             "title": a.get("title", ""),
             "date": a.get("date", ""),
             "last_seen": datetime.now().isoformat(),
