@@ -1,6 +1,6 @@
 """
 send_ntfy.py
-Reads the latest ANFR JSON report and sends a push notification via ntfy.sh
+Reads the latest ANFR JSON report and sends a push notification via ntfy.sh.
 All notification text is sent in English to avoid Korean encoding issues.
 """
 
@@ -116,7 +116,6 @@ def main():
         tags = "white_check_mark"
     else:
         subject = f"ANFR News Report - {crawled_at} ({changed_count} new/updated)"
-
         preview = make_preview_lines(changed_articles)
 
         body = (
