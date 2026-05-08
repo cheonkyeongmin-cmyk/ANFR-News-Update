@@ -1,0 +1,46 @@
+============================================================
+  ANFR Regulatory News Report | 2026-05-08
+  Total 6 articles | New/updated 0
+============================================================
+
+[OLD] Au 1er mai 2026, plus de 55 000 sites 5G et 71 982 sites 4G autorisés par l’ANFR en France
+Date:  | https://www.anfr.fr/liste-actualites/actualite/au-1er-mai-2026-plus-de-55-000-sites-5g-et-71-982-sites-4g-autorises-par-lanfr-en-france
+FR Summary: Au 1er mai 2026, l'ANFR a autorisé plus de 55 000 sites 5G et 71 982 sites 4G en France, marquant une transition des réseaux 2G/3G vers les nouvelles générations. La majorité des sites 5G sont opérationnels et souvent implantés sur des infrastructures existantes. Le déploiement de la 4G continue activement, tandis que les réseaux 3G entament leur extinction.
+EN Summary: As of May 1, 2026, the ANFR has authorized over 55,000 5G sites and 71,982 4G sites in France, signifying a transition from 2G/3G networks to newer generations. The majority of 5G sites are operational and often deployed on existing infrastructure. 4G deployment remains active, while 3G networks are beginning to be phased out.
+KO Summary: 2026년 5월 1일 기준, 프랑스 ANFR은 55,000개 이상의 5G 사이트와 71,982개의 4G 사이트를 승인했으며, 이는 2G/3G 네트워크에서 신세대 네트워크로의 전환을 나타냅니다. 5G 사이트의 대다수는 운영 중이며 기존 인프라에 자주 구축됩니다. 4G 배포는 활발히 진행 중이며, 3G 네트워크는 점차 폐지되고 있습니다.
+------------------------------------------------------------
+
+[OLD] Saga CMR -27 – Point 1.4 : Vers une harmonisation du cadre règlementaire de la bande 17,3-17,8 GHz (bande Ka) dans la direction espace vers Terre pour une connectivité mondiale.
+Date:  | https://www.anfr.fr/liste-actualites/actualite/saga-cmr-27-point-14-vers-une-harmonisation-du-cadre-reglementaire-de-la-bande-173-178-ghz-bande-ka-dans-la-direction-espace-vers-terre-pour-une-connectivite-mondiale
+FR Summary: La CMR-27 vise à harmoniser la réglementation de la bande 17,3-17,8 GHz (bande Ka) pour les communications espace-Terre, notamment pour l'Internet par satellite. L'objectif est d'étendre l'utilisation de cette bande en Région 3 (Asie, Océanie) pour permettre de nouveaux usages globaux, tout en protégeant les services existants. Des modifications sont envisagées pour le Service Fixe par Satellite et la Radiodiffusion par satellite afin d'aligner les réglementations mondiales.
+EN Summary: The WRC-27 aims to harmonize regulations for the 17.3-17.8 GHz (Ka-band) for space-to-Earth communications, particularly for satellite internet. The goal is to extend the use of this band in Region 3 (Asia, Oceania) to enable new global applications while protecting existing services. Modifications are being considered for Fixed Satellite Service and Satellite Broadcasting to align global regulations.
+KO Summary: WRC-27은 위성 인터넷 등 우주-지구 통신을 위한 17.3-17.8GHz(Ka 대역) 규제를 조화시키는 것을 목표로 합니다. 이는 기존 서비스를 보호하면서 새로운 글로벌 응용 프로그램을 가능하게 하기 위해 지역 3(아시아, 오세아니아)에서의 해당 대역 사용을 확대하는 것을 목표로 합니다. 고정 위성 서비스 및 위성 방송에 대한 수정이 글로벌 규정을 일치시키기 위해 고려되고 있습니다.
+------------------------------------------------------------
+
+[OLD] Le smartphone connecté au satellite : vers le D2D-IMT
+Date:  | https://www.anfr.fr/liste-actualites/actualite/le-smartphone-connecte-au-satellite-vers-le-d2d-imt
+FR Summary: La connexion directe des smartphones aux satellites, appelée D2D-IMT, promet de surmonter les limitations de couverture des réseaux terrestres. Deux modèles techniques existent, dont le D2D-IMT où le satellite utilise les fréquences de la téléphonie mobile, permettant aux smartphones standards de s'y connecter comme à une station de base. Ce développement ouvre des perspectives pour des usages au-delà du grand public, mais nécessite un cadre réglementaire pour garantir la coexistence spectrale.
+EN Summary: Direct smartphone-to-satellite connectivity, known as D2D-IMT, promises to overcome the coverage limitations of terrestrial networks. Two technical models exist, including D2D-IMT where the satellite uses mobile telephony frequencies, allowing standard smartphones to connect to it like a base station. This development opens possibilities for uses beyond the general public, but requires a regulatory framework to ensure spectral coexistence.
+KO Summary: D2D-IMT로 알려진 스마트폰과 위성 간의 직접 연결은 지상 네트워크의 커버리지 한계를 극복할 것을 약속합니다. D2D-IMT를 포함한 두 가지 기술 모델이 존재하며, 여기서 위성은 이동 전화 주파수를 사용하여 표준 스마트폰이 기지국처럼 연결할 수 있도록 합니다. 이러한 발전은 일반 대중을 넘어선 사용 가능성을 열어주지만, 스펙트럼 공존을 보장하기 위한 규제 프레임워크가 필요합니다.
+------------------------------------------------------------
+
+[OLD] L’ANFR notifie à l’UIT la mise en service des fréquences d’IRIS²
+Date:  | https://www.anfr.fr/liste-actualites/actualite/lanfr-notifie-a-luit-la-mise-en-service-des-frequences-diris2
+FR Summary: L'ANFR a notifié à l'Union internationale des télécommunications (UIT) la mise en service réglementaire des fréquences françaises prioritaires pour la constellation européenne IRIS². Cette démarche, demandée par la Commission européenne, officialise l'utilisation des bandes Ka pour les services gouvernementaux du programme spatial européen. L'action s'appuie sur le bon fonctionnement d'un satellite Eutelsat/OneWeb, validant ainsi l'autorisation d'usage de ces fréquences cruciales.
+EN Summary: The ANFR has notified the International Telecommunication Union (ITU) of the regulatory commissioning of priority French frequencies for the IRIS² European constellation. This action, requested by the European Commission, formalizes the use of Ka bands for the European sovereign space program's governmental services. The initiative is based on the successful operation of an Eutelsat/OneWeb satellite, thereby validating the usage rights for these crucial frequencies.
+KO Summary: 프랑스 ANFR은 유럽 IRIS² 위성군을 위한 우선 주파수의 규제 발효를 국제전기통신연합(ITU)에 통보했습니다. 유럽 집행위원회의 요청에 따른 이번 조치는 유럽 주권 우주 프로그램의 정부 서비스를 위한 Ka 대역 사용을 공식화합니다. 이 활동은 Eutelsat/OneWeb 위성의 성공적인 운영을 기반으로 하며, 따라서 이러한 중요한 주파수의 사용 권한을 검증합니다.
+------------------------------------------------------------
+
+[OLD] Deux missions, un objectif : débusquer la tondeuse qui ne mangeait pas que de l’herbe
+Date:  | https://www.anfr.fr/liste-actualites/actualite/deux-missions-un-objectif-debusquer-la-tondeuse-qui-ne-mangeait-pas-que-de-lherbe-1
+FR Summary: [LLM error: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}]
+EN Summary: [LLM error: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}]
+KO Summary: [LLM error: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}]
+------------------------------------------------------------
+
+[OLD] Mobile World Congress 2026 de Barcelone : l’IA, la 6G et le satellite au cœur des enjeux de fréquences
+Date:  | https://www.anfr.fr/liste-actualites/actualite/mobile-world-congress-2026-de-barcelone-lia-la-6g-et-le-satellite-au-coeur-des-enjeux-de-frequences
+FR Summary: Le Mobile World Congress 2026 de Barcelone a mis en lumière le rôle central de l'intelligence artificielle, de la 6G et du satellite dans les enjeux de fréquences. L'IA pourrait modifier la structure du trafic mobile, potentiellement rééquilibrant les flux montants et descendants, ce qui aurait des implications pour la planification des fréquences et pourrait favoriser des technologies comme le FDD. La préparation de la 6G et la gestion de la latence pour les applications d'IA en temps réel ont également été des sujets majeurs.
+EN Summary: The Mobile World Congress 2026 in Barcelona highlighted the central role of artificial intelligence, 6G, and satellite technology in frequency-related challenges. AI is expected to alter mobile traffic patterns, potentially rebalancing upstream and downstream data flows, which will have implications for frequency planning and could favor technologies like FDD. Preparations for 6G and managing low latency for real-time AI applications were also key topics.
+KO Summary: 바르셀로나에서 열린 2026 모바일 월드 콩그레스는 주파수 문제의 핵심으로 인공지능, 6G, 위성 기술의 역할을 부각시켰습니다. AI는 모바일 트래픽 패턴을 변화시켜 업스트림 및 다운스트림 데이터 흐름의 균형을 재조정할 수 있으며, 이는 주파수 계획에 영향을 미치고 FDD와 같은 기술을 선호할 수 있습니다. 6G 준비 및 실시간 AI 애플리케이션을 위한 저지연 관리도 주요 주제였습니다.
+------------------------------------------------------------
