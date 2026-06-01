@@ -1,0 +1,46 @@
+============================================================
+  ANFR Regulatory News Report | 2026-06-01
+  Total 6 articles | New/updated 1
+============================================================
+
+[NEW] Nouvelle répartition des bandes de fréquences arrêtée par le Premier ministre
+Date:  | https://www.anfr.fr/liste-actualites/actualite/nouvelle-repartition-des-bandes-de-frequences-arretee-par-le-premier-ministre-10
+FR Summary: Le Premier ministre a modifié le tableau national de répartition des bandes de fréquences (TNRBF) le 26 mai 2026. Ces changements visent à protéger le service de radionavigation par satellite Galileo E6, à ajuster la bande de fréquences pour les microphones sans fil et à autoriser les stations terriennes en mouvement dans les bandes Ku et Ka. Ces modifications font suite à une délibération de l'ANFR et sont en conformité avec la réglementation européenne.
+EN Summary: The Prime Minister modified the national frequency band allocation table (TNRBF) on May 26, 2026. These changes aim to protect the Galileo E6 satellite radionavigation service, adjust the frequency band for wireless microphones, and authorize mobile earth stations in Ku and Ka bands. These modifications follow a deliberation by ANFR and align with European regulations.
+KO Summary: 총리은 2026년 5월 26일 전국 주파수 대역 할당표(TNRBF)를 수정했습니다. 이러한 변경 사항은 갈릴레오 E6 위성 항법 서비스 보호, 무선 마이크 주파수 대역 조정, Ku 및 Ka 대역에서의 이동 지구국 허가를 목표로 합니다. 이 수정안은 ANFR의 심의를 거쳤으며 유럽 규정에 따릅니다.
+------------------------------------------------------------
+
+[OLD] Réseaux mobiles : l’extinction de la 2G entre dans une phase concrète
+Date:  | https://www.anfr.fr/liste-actualites/actualite/reseaux-mobiles-lextinction-de-la-2g-entre-dans-une-phase-concrete
+FR Summary: Les réseaux mobiles 2G en France entrent dans leur phase concrète d'extinction, avec une date limite fixée pour mai 2026. Les opérateurs comme Orange et Bouygues Telecom ont déjà commencé à désactiver des sites, tandis que SFR adopte une approche plus prudente pour le moment. Cette transition s'inscrit dans la généralisation des réseaux 4G et 5G.
+EN Summary: France's 2G mobile networks are entering a concrete phase of shutdown, with a deadline set for May 2026. Operators like Orange and Bouygues Telecom have already begun deactivating sites, while SFR is currently taking a more cautious approach. This transition is part of the broader rollout of 4G and 5G networks.
+KO Summary: 프랑스의 2G 모바일 네트워크가 2026년 5월을 기점으로 구체적인 종료 단계에 접어들고 있습니다. Orange와 Bouygues Telecom과 같은 통신사들은 이미 사이트 비활성화를 시작했으며, SFR은 현재 더 신중한 접근 방식을 취하고 있습니다. 이러한 전환은 4G 및 5G 네트워크의 광범위한 보급의 일환입니다.
+------------------------------------------------------------
+
+[OLD] L’ANFR parraine le prix de thèse en radio-sciences de l’URSI France 2026
+Date:  | https://www.anfr.fr/liste-actualites/actualite/lanfr-parraine-le-prix-de-these-en-radio-sciences-de-lursi-france-2026
+FR Summary: [LLM error: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}]
+EN Summary: [LLM error: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}]
+KO Summary: [LLM error: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}]
+------------------------------------------------------------
+
+[OLD] Connecter les îles du bout du monde : les défis télécoms du Pacifique
+Date:  | https://www.anfr.fr/liste-actualites/actualite/connecter-les-iles-du-bout-du-monde-les-defis-telecoms-du-pacifique
+FR Summary: Les îles du Pacifique font face à des défis télécoms uniques dus à leur environnement extrême et à leur faible densité de population, complexifiés par l'émergence des constellations satellitaires. L'Association des Télécoms des Îles du Pacifique (PITA), à laquelle participe l'ANFR, vise à fédérer les expertises pour aborder ces enjeux communs. Les priorités incluent la résilience des infrastructures, la durabilité et l'intelligence artificielle, avec des débats sur l'impact des satellites.
+EN Summary: Pacific island nations face unique telecom challenges due to their extreme environments and low population densities, further complicated by the emergence of satellite constellations. The Pacific Island Telecom Association (PITA), with ANFR participation, aims to unite expertise to address these common issues. Priorities include infrastructure resilience, sustainability, and artificial intelligence, with discussions on satellite impacts.
+KO Summary: 태평양 도서 국가들은 극한 환경과 낮은 인구 밀도로 인한 독특한 통신 과제에 직면해 있으며, 위성 군집의 등장으로 더욱 복잡해지고 있습니다. ANFR이 참여하는 태평양 섬 통신 협회(PITA)는 이러한 공통의 문제를 해결하기 위해 전문성을 통합하는 것을 목표로 합니다. 우선순위에는 인프라 복원력, 지속 가능성, 인공 지능이 포함되며, 위성의 영향에 대한 논의도 이루어집니다.
+------------------------------------------------------------
+
+[OLD] Au 1er mai 2026, plus de 55 000 sites 5G et 71 982 sites 4G autorisés par l’ANFR en France
+Date:  | https://www.anfr.fr/liste-actualites/actualite/au-1er-mai-2026-plus-de-55-000-sites-5g-et-71-982-sites-4g-autorises-par-lanfr-en-france
+FR Summary: Au 1er mai 2026, l'ANFR a autorisé plus de 55 000 sites 5G et 71 982 sites 4G en France, marquant une transition des réseaux 2G/3G vers les nouvelles générations. La majorité des sites 5G sont opérationnels et souvent implantés sur des infrastructures existantes. Le déploiement de la 4G continue activement, tandis que les réseaux 3G entament leur extinction.
+EN Summary: As of May 1, 2026, the ANFR has authorized over 55,000 5G sites and 71,982 4G sites in France, signifying a transition from 2G/3G networks to newer generations. The majority of 5G sites are operational and often deployed on existing infrastructure. 4G deployment remains active, while 3G networks are beginning to be phased out.
+KO Summary: 2026년 5월 1일 기준, 프랑스 ANFR은 55,000개 이상의 5G 사이트와 71,982개의 4G 사이트를 승인했으며, 이는 2G/3G 네트워크에서 신세대 네트워크로의 전환을 나타냅니다. 5G 사이트의 대다수는 운영 중이며 기존 인프라에 자주 구축됩니다. 4G 배포는 활발히 진행 중이며, 3G 네트워크는 점차 폐지되고 있습니다.
+------------------------------------------------------------
+
+[OLD] Saga CMR -27 – Point 1.4 : Vers une harmonisation du cadre règlementaire de la bande 17,3-17,8 GHz (bande Ka) dans la direction espace vers Terre pour une connectivité mondiale.
+Date:  | https://www.anfr.fr/liste-actualites/actualite/saga-cmr-27-point-14-vers-une-harmonisation-du-cadre-reglementaire-de-la-bande-173-178-ghz-bande-ka-dans-la-direction-espace-vers-terre-pour-une-connectivite-mondiale
+FR Summary: La CMR-27 vise à harmoniser la réglementation de la bande 17,3-17,8 GHz (bande Ka) pour les communications espace-Terre, notamment pour l'Internet par satellite. L'objectif est d'étendre l'utilisation de cette bande en Région 3 (Asie, Océanie) pour permettre de nouveaux usages globaux, tout en protégeant les services existants. Des modifications sont envisagées pour le Service Fixe par Satellite et la Radiodiffusion par satellite afin d'aligner les réglementations mondiales.
+EN Summary: The WRC-27 aims to harmonize regulations for the 17.3-17.8 GHz (Ka-band) for space-to-Earth communications, particularly for satellite internet. The goal is to extend the use of this band in Region 3 (Asia, Oceania) to enable new global applications while protecting existing services. Modifications are being considered for Fixed Satellite Service and Satellite Broadcasting to align global regulations.
+KO Summary: WRC-27은 위성 인터넷 등 우주-지구 통신을 위한 17.3-17.8GHz(Ka 대역) 규제를 조화시키는 것을 목표로 합니다. 이는 기존 서비스를 보호하면서 새로운 글로벌 응용 프로그램을 가능하게 하기 위해 지역 3(아시아, 오세아니아)에서의 해당 대역 사용을 확대하는 것을 목표로 합니다. 고정 위성 서비스 및 위성 방송에 대한 수정이 글로벌 규정을 일치시키기 위해 고려되고 있습니다.
+------------------------------------------------------------
