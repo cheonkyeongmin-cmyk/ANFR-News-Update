@@ -1,7 +1,14 @@
 ============================================================
   ANFR Regulatory News Report | 2026-09-22
-  Total 6 articles | New/updated 0
+  Total 6 articles | New/updated 1
 ============================================================
+
+[NEW] Hackathon ANFR 2026 : Une semaine de challenges à l’ISEP sur l’IA et l’espace
+Date:  | https://www.anfr.fr/liste-actualites/actualite/hackathon-anfr-2026-une-semaine-de-challenges-a-lisep-sur-lia-et-lespace
+FR Summary: Le FrHack! 2026, organisé par l'ANFR à l'ISEP, a réuni 72 étudiants pour relever des défis liés à l'IA et à l'espace, visant à optimiser et protéger les télécommunications. Les équipes ont développé des solutions concrètes, dont un système de vision artificielle pour détecter les antennes non déclarées depuis l'espace, remportant la première place. La qualité des travaux a impressionné, soulignant l'impact croissant de l'IA dans le développement de solutions innovantes.
+EN Summary: The ANFR's FrHack! 2026, held at ISEP, brought together 72 students to tackle challenges in AI and space to optimize and protect telecommunications. The teams developed concrete solutions, including an artificial intelligence system for detecting undeclared antennas from space, which won first place. The quality of the student projects impressed, highlighting the growing impact of AI in developing innovative solutions.
+KO Summary: ANFR가 ISEP에서 주최한 FrHack! 2026은 72명의 학생들을 모아 통신을 최적화하고 보호하기 위한 AI 및 우주 관련 과제를 해결했습니다. 팀들은 우주에서 미신고 안테나를 탐지하는 인공지능 시스템을 포함한 구체적인 솔루션을 개발했으며, 이 솔루션이 1등을 차지했습니다. 학생들의 프로젝트 수준이 매우 높아, 혁신적인 솔루션 개발에 AI가 미치는 영향이 커지고 있음을 보여주었습니다.
+------------------------------------------------------------
 
 [OLD] Au 1er septembre 2026, plus de 56 100 sites 5G et 72 557 sites 4G autorisés par l’ANFR en France
 Date:  | https://www.anfr.fr/liste-actualites/actualite/au-1er-juillet-2026-plus-de-55-600-sites-5g-et-72-283-sites-4g-autorises-par-lanfr-en-france-1-1
@@ -36,11 +43,4 @@ Date:  | https://www.anfr.fr/liste-actualites/actualite/retrait-du-marche-et-rap
 FR Summary: L'ANFR a ordonné le retrait et le rappel des téléphones AGM Note N1, DOOGEE N55 PLUS, INFINIX SMART 9 et NOTHING PHONE 3A en raison d'un dépassement de la limite de débit d'absorption spécifique (DAS). De plus, le téléphone SAMSUNG A55 est rappelé pour défaut de marquage CE et non-conformités administratives. Les distributeurs sont priés de prendre des mesures en cas d'inaction des fabricants.
 EN Summary: French authorities have ordered the withdrawal and recall of AGM Note N1, DOOGEE N55 PLUS, INFINIX SMART 9, and NOTHING PHONE 3A devices due to exceeding the Specific Absorption Rate (SAR) limits. Additionally, the SAMSUNG A55 is being recalled for a lack of CE marking and administrative non-conformities. Distributors are instructed to act if manufacturers fail to do so.
 KO Summary: 프랑스 통신 규제 기관(ANFR)은 특정 흡수율(SAR) 한도 초과로 인해 AGM Note N1, DOOGEE N55 PLUS, INFINIX SMART 9, NOTHING PHONE 3A 모델에 대한 판매 중단 및 리콜을 명령했습니다. 또한, 삼성 A55 모델은 CE 마킹 누락 및 행정 절차 미준수로 인해 리콜 대상이 되었습니다. 제조업체가 조치를 취하지 않을 경우 유통업체에게도 관련 조치를 요구했습니다.
-------------------------------------------------------------
-
-[OLD] L’ANFR publie son rapport d’activité 2025
-Date:  | https://www.anfr.fr/liste-actualites/actualite/lanfr-publie-son-rapport-dactivite-2025
-FR Summary: L'Agence Nationale des Fréquences (ANFR) a publié son rapport d'activité pour l'année 2025, soulignant une période de transformation significative dans les domaines du numérique, du spatial et des télécommunications. Ce rapport détaille les missions de l'agence, ses réalisations marquantes, ainsi que les enjeux stratégiques qui orientent la gestion des fréquences pour l'avenir.
-EN Summary: The French National Frequency Agency (ANFR) has released its 2025 activity report, highlighting a year of significant transformation in digital, space, and telecommunications. The report outlines the agency's missions, key achievements, and the strategic challenges shaping the future of frequency management.
-KO Summary: 프랑스 국립 주파수 관리국(ANFR)은 2025년 활동 보고서를 발표했으며, 이는 디지털, 우주 및 통신 분야의 중요한 변화의 해를 강조합니다. 이 보고서는 기관의 임무, 주요 성과 및 주파수 관리의 미래를 형성하는 전략적 과제를 자세히 설명합니다.
 ------------------------------------------------------------
