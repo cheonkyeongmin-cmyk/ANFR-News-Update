@@ -1,9 +1,9 @@
 ============================================================
   ANFR Regulatory News Report | 2026-10-15
-  Total 6 articles | New/updated 1
+  Total 6 articles | New/updated 0
 ============================================================
 
-[NEW] La France réaffirme son soutien à une couverture satellitaire mondiale lors de l’Assemblée de l’ITSO
+[OLD] La France réaffirme son soutien à une couverture satellitaire mondiale lors de l’Assemblée de l’ITSO
 Date:  | https://www.anfr.fr/liste-actualites/actualite/la-france-reaffirme-son-soutien-a-une-couverture-satellitaire-mondiale-lors-de-lassemblee-de-litso
 FR Summary: La France, via l'ANFR, a réaffirmé son soutien à l'Organisation internationale de télécommunications par satellite (ITSO) lors de sa 42ème assemblée à Washington. L'enjeu principal était de garantir le maintien des obligations de service public d'Intelsat, cruciales pour la connectivité des territoires français d'outre-mer, suite à son rachat par SES. La France s'est mobilisée pour assurer la continuité de ces services essentiels et pour défendre le multilatéralisme dans la gestion des fréquences.
 EN Summary: France, represented by ANFR, reaffirmed its support for the International Telecommunications Satellite Organization (ITSO) at its 42nd assembly in Washington. The main concern was ensuring Intelsat's public service obligations, vital for the connectivity of French overseas territories, are maintained following its acquisition by SES. France actively worked to guarantee the continuity of these essential services and to advocate for multilateralism in frequency management.
