@@ -1,0 +1,46 @@
+============================================================
+  ANFR Regulatory News Report | 2026-11-26
+  Total 6 articles | New/updated 0
+============================================================
+
+[OLD] Saga CMR-27 - Point 1.6 : Qui aura sa place dans le ciel ?
+Date:  | https://www.anfr.fr/liste-actualites/actualite/saga-cmr-27-point-16-qui-aura-sa-place-dans-le-ciel
+FR Summary: La Conférence mondiale des radiocommunications de 2027 (CMR-27) abordera la question de l'accès équitable aux fréquences satellitaires, notamment les bandes Q/V. Le défi est de concilier les intérêts des acteurs existants avec ceux des nouveaux arrivants, tout en garantissant une utilisation rationnelle et équitable de ces ressources limitées. Deux approches, la coordination internationale basée sur l'ordre d'arrivée et les mécanismes de planification réservant des ressources, coexistent actuellement pour tenter de résoudre ce dilemme.
+EN Summary: The 2027 World Radiocommunication Conference (WRC-27) will address the issue of equitable access to satellite frequencies, particularly the Q/V bands. The challenge lies in balancing the interests of existing players with those of new entrants, while ensuring the rational and fair use of these limited resources. Two approaches, international coordination based on first-come, first-served and planning mechanisms reserving resources, currently coexist to try and resolve this dilemma.
+KO Summary: 2027년 세계 전파 통신 회의(WRC-27)는 특히 Q/V 대역을 포함한 위성 주파수에 대한 공평한 접근 문제를 다룰 예정입니다. 이 문제는 기존 사업자들의 이익과 신규 진입자들의 이익을 조화시키면서, 이 제한된 자원의 합리적이고 공정한 사용을 보장하는 데 있습니다. 선착순에 기반한 국제 조정과 자원을 유보하는 계획 메커니즘이라는 두 가지 접근 방식이 현재 이 딜레마를 해결하기 위해 공존하고 있습니다.
+------------------------------------------------------------
+
+[OLD] Saga CMR-27 - Point 1.5 : Les terminaux satellitaires peuvent-ils émettre sans autorisation ?
+Date:  | https://www.anfr.fr/liste-actualites/actualite/saga-cmr-27-point-15-les-terminaux-satellitaires-peuvent-ils-emettre-sans-autorisation
+FR Summary: La CMR-27 aborde la question des terminaux satellitaires émettant sans autorisation dans un pays, comme le cas Starlink en Iran l'a démontré. La France, coordonnant les discussions européennes, défend l'établissement de règles internationales pour le respect du spectre, tout en s'opposant à des mesures qui excluraient des pays de la zone de service. L'objectif est d'assurer une mise en œuvre effective de l'obligation pour les opérateurs de désactiver les terminaux non autorisés.
+EN Summary: The WRC-27 is addressing the issue of satellite terminals transmitting without authorization in a country, as exemplified by the Starlink case in Iran. France, coordinating European discussions, advocates for international rules to ensure spectrum respect, while opposing measures that would exclude countries from service areas. The goal is to ensure effective implementation of operators' obligation to deactivate unauthorized terminals.
+KO Summary: WRC-27은 이란의 스타링크 사례에서 볼 수 있듯이, 국가의 허가 없이 위성 단말기가 송신하는 문제를 다루고 있습니다. 유럽 논의를 조율하는 프랑스는 스펙트럼 준수를 위한 국제 규칙 수립을 지지하며, 서비스 지역에서 국가를 배제하는 조치에는 반대하고 있습니다. 목표는 운영자가 승인되지 않은 단말기를 비활성화해야 하는 의무의 효과적인 이행을 보장하는 것입니다.
+------------------------------------------------------------
+
+[OLD] Éric Fournier élu Directeur du Bureau des radiocommunications de l’UIT
+Date:  | https://www.anfr.fr/liste-actualites/actualite/eric-fournier-elu-directeur-du-bureau-des-radiocommunications-de-luit
+FR Summary: Éric Fournier a été élu Directeur du Bureau des radiocommunications de l'UIT pour un mandat de quatre ans débutant en janvier 2027. Son objectif est de gérer l'évolution du secteur tout en assurant la coexistence des différents usages du spectre, avec pour priorité le succès de la Conférence mondiale des radiocommunications de 2027 (CMR-27). Cette élection récompense plus de 30 ans d'expérience et renforce la crédibilité de l'ANFR sur la scène internationale.
+EN Summary: Éric Fournier has been elected Director of the ITU's Radiocommunication Bureau for a four-year term starting in January 2027. His aim is to manage the sector's evolution while ensuring the coexistence of different spectrum uses, with the success of the 2027 World Radiocommunication Conference (WRC-27) as his top priority. This election acknowledges over 30 years of experience and enhances ANFR's credibility on the international stage.
+KO Summary: 에릭 푸르니에(Éric Fournier)가 2027년 1월부터 시작되는 4년 임기 동안 ITU 전파통신국장으로 선출되었습니다. 그는 스펙트럼 사용의 조화를 보장하면서 해당 분야의 발전을 관리하는 것을 목표로 하며, 2027년 세계 전파통신회의(WRC-27)의 성공을 최우선 과제로 삼고 있습니다. 이번 선출은 30년 이상의 경험에 대한 인정이자 국제 무대에서 ANFR의 신뢰도를 높이는 결과입니다.
+------------------------------------------------------------
+
+[OLD] Une application mobile pour décoder son environnement radioélectrique
+Date:  | https://www.anfr.fr/liste-actualites/actualite/une-application-mobile-pour-decoder-son-environnement-radioelectrique
+FR Summary: L'application mobile OpenBarres de l'ANFR, qui compte plus de 10 000 utilisateurs, permet de visualiser les antennes-relais, de consulter les mesures de réception mobile et de connaître le DAS des téléphones. Elle vise à informer le public sur son environnement radioélectrique et à améliorer la connaissance des réseaux mobiles, tout en ayant un intérêt scientifique pour des analyses avancées. Les millions de mesures participatives collectées fournissent une riche source d'information sur la réception vécue sur le terrain et l'évolution des usages.
+EN Summary: The ANFR's mobile application, OpenBarres, with over 10,000 users, allows users to visualize cell towers, check mobile reception measurements, and find out their phone's SAR value. It aims to inform the public about their radioelectric environment and enhance understanding of mobile networks, while also serving a scientific purpose for advanced analysis. The millions of participatory measurements collected offer a rich source of information on real-world reception experiences and usage trends.
+KO Summary: ANFR의 모바일 애플리케이션인 OpenBarres는 10,000명 이상의 사용자를 보유하고 있으며, 기지국 시각화, 모바일 수신 측정 확인, 휴대폰의 SAR 값 확인 기능을 제공합니다. 이 앱은 대중에게 전파 환경에 대한 정보를 제공하고 모바일 네트워크에 대한 이해를 높이는 것을 목표로 하며, 고급 분석을 위한 과학적 목적도 수행합니다. 수백만 건의 참여형 측정 데이터는 실제 수신 경험과 사용 트렌드에 대한 풍부한 정보를 제공합니다.
+------------------------------------------------------------
+
+[OLD] Au 1er novembre 2026, plus de 56 600 sites 5G  et 72 800 sites 4G autorisés par l’ANFR en France
+Date:  | https://www.anfr.fr/liste-actualites/actualite/au-1er-novembre-2026-plus-de-56-600-sites-5g-et-72-800-sites-4g-autorises-par-lanfr-en-france
+FR Summary: [LLM error: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}]
+EN Summary: [LLM error: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}]
+KO Summary: [LLM error: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}]
+------------------------------------------------------------
+
+[OLD] Changement d’heure : à Allouis, la France remet aussi ses pendules à l’heure
+Date:  | https://www.anfr.fr/liste-actualites/actualite/changement-dheure-a-allouis-la-france-remet-aussi-ses-pendules-a-lheure
+FR Summary: Chaque année, le changement d'heure en France s'appuie sur un signal horaire méconnu diffusé depuis Allouis (Cher). Géré par l'ANFR et exploité par TDF, ce signal, émis sur basse fréquence, assure la synchronisation automatique de centaines de milliers d'horloges et d'équipements professionnels. Cette infrastructure technique est essentielle pour maintenir une référence temporelle légale fiable et indépendante des réseaux numériques.
+EN Summary: Each year, France's daylight saving time change relies on an little-known time signal broadcast from Allouis (Cher). Managed by ANFR and operated by TDF, this low-frequency signal ensures the automatic synchronization of hundreds of thousands of clocks and professional equipment. This technical infrastructure is crucial for maintaining a reliable legal time reference independent of digital networks.
+KO Summary: 매년 프랑스의 서머타임 변경은 셰르주의 알루이에서 방송되는 잘 알려지지 않은 시간 신호에 의존합니다. ANFR이 관리하고 TDF가 운영하는 이 저주파 신호는 수십만 개의 시계와 전문 장비의 자동 동기화를 보장합니다. 이 기술 인프라는 디지털 네트워크와 독립적인 신뢰할 수 있는 법정 시간 기준을 유지하는 데 매우 중요합니다.
+------------------------------------------------------------
